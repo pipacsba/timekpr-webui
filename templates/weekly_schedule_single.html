@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="./">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Schedule - {{ user.username }} - TimeKpr webUI</title>
@@ -623,7 +624,7 @@
         }
         
         function loadIntervals() {
-            fetch(`./api/user/{{ user.id }}/intervals`)
+            fetch(`api/user/{{ user.id }}/intervals`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
@@ -705,7 +706,7 @@
                     };
                 }
                 
-                fetch(`./api/user/{{ user.id }}/intervals/update`, {
+                fetch(`api/user/{{ user.id }}/intervals/update`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ intervals: intervalData })
@@ -740,7 +741,7 @@
         
         // Function to update sync status
         function updateSyncStatus() {
-            fetch('./api/schedule-sync-status/{{ user.id }}')
+            fetch('api/schedule-sync-status/{{ user.id }}')
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
