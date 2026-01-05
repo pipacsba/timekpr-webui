@@ -624,7 +624,9 @@
         }
         
         function loadIntervals() {
-            fetch(`api/user/{{ user.id }}/intervals`)
+            const ingressBase = window.location.pathname.replace(/\/[^/]*$/, "");
+            fetch(`${ingressBase}/api/user/{{ user.id }}/intervals`);
+            //fetch(`api/user/{{ user.id }}/intervals`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
@@ -705,8 +707,10 @@
                         end_minute: 0
                     };
                 }
-                
-                fetch(`api/user/{{ user.id }}/intervals/update`, {
+
+                const ingressBase = window.location.pathname.replace(/\/[^/]*$/, "");
+                fetch(`${ingressBase}/api/user/{{ user.id }}/intervals/update`,{
+                //fetch(`api/user/{{ user.id }}/intervals/update`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ intervals: intervalData })
@@ -741,7 +745,10 @@
         
         // Function to update sync status
         function updateSyncStatus() {
-            fetch('api/schedule-sync-status/{{ user.id }}')
+
+            const ingressBase = window.location.pathname.replace(/\/[^/]*$/, "");
+            fetch(`${ingressBase}/api/schedule-sync-status/{{ user.id }}`);
+            //fetch('api/schedule-sync-status/{{ user.id }}')
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
