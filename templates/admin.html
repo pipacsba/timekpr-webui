@@ -33,7 +33,7 @@
         <script>
             // Function to update the task status indicator
             function updateTaskStatus() {
-                fetch('/api/task-status')
+                fetch('./api/task-status')
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
