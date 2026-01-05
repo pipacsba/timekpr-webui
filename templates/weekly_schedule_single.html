@@ -624,7 +624,7 @@
         }
         
         function loadIntervals() {
-            const ingressBase = window.location.pathname.replace(/\/[^/]*$/, "");
+            const ingressBase = window.location.pathname.match(/^\/api\/hassio_ingress\/[^/]+/)[0];
             fetch(`${ingressBase}/api/user/{{ user.id }}/intervals`);
             //fetch(`api/user/{{ user.id }}/intervals`)
                 .then(response => response.json())
@@ -708,7 +708,7 @@
                     };
                 }
 
-                const ingressBase = window.location.pathname.replace(/\/[^/]*$/, "");
+                const ingressBase = window.location.pathname.match(/^\/api\/hassio_ingress\/[^/]+/)[0];
                 fetch(`${ingressBase}/api/user/{{ user.id }}/intervals/update`,{
                 //fetch(`api/user/{{ user.id }}/intervals/update`, {
                     method: 'POST',
@@ -746,7 +746,7 @@
         // Function to update sync status
         function updateSyncStatus() {
 
-            const ingressBase = window.location.pathname.replace(/\/[^/]*$/, "");
+            const ingressBase = window.location.pathname.match(/^\/api\/hassio_ingress\/[^/]+/)[0];
             fetch(`${ingressBase}/api/schedule-sync-status/{{ user.id }}`);
             //fetch('api/schedule-sync-status/{{ user.id }}')
                 .then(response => response.json())
