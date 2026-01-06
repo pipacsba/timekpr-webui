@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- marker to check if this is sent -->
-    <base href="{{ url_for('static') }}">
+    <base href="{{ request.script_root }}/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Schedule - {{ user.username }} - TimeKpr webUI</title>
