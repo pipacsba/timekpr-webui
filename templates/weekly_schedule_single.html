@@ -744,7 +744,7 @@
         function updateSyncStatus() {
             // marker to check if this is sent
             const INGRESS_BASE = location.pathname.match(/^\/api\/hassio_ingress\/[^/]+/)?.[0] ?? "";
-            fetch(`${INGRESS_BASE}/api/schedule-sync-status/{{ user.id }}`);
+            fetch(`${INGRESS_BASE}/api/schedule-sync-status/{{ user.id }}`)
             //fetch('api/schedule-sync-status/{{ user.id }}')
                 .then(response => response.json())
                 .then(data => {
