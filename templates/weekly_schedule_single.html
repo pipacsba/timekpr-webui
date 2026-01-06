@@ -742,7 +742,7 @@
         
         // Function to update sync status
         function updateSyncStatus() {
-
+            // marker to check if this is sent
             fetch('api/schedule-sync-status/{{ user.id }}')
                 .then(response => response.json())
                 .then(data => {
