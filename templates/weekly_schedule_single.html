@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- marker to check if this is sent -->
-    <base href="./">
+    <base href="{{ url_for('static') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Schedule - {{ user.username }} - TimeKpr webUI</title>
@@ -743,9 +743,9 @@
         // Function to update sync status
         function updateSyncStatus() {
             // marker to check if this is sent
-            const INGRESS_BASE = location.pathname.match(/^\/api\/hassio_ingress\/[^/]+/)?.[0] ?? "";
-            fetch(`${INGRESS_BASE}/api/schedule-sync-status/{{ user.id }}`)
-            //fetch('api/schedule-sync-status/{{ user.id }}')
+            //const INGRESS_BASE = location.pathname.match(/^\/api\/hassio_ingress\/[^/]+/)?.[0] ?? "";
+            //fetch(`${INGRESS_BASE}/api/schedule-sync-status/{{ user.id }}`)
+            fetch('api/schedule-sync-status/{{ user.id }}')
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
