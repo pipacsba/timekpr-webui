@@ -10,7 +10,7 @@ from src.task_manager import BackgroundTaskManager
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.WARN,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 
